@@ -5,7 +5,7 @@ export const data = [
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Expresso.png',
+    imgUrl: '/coffes/Expresso.png',
     tags: ['Tradicional'],
   },
   {
@@ -13,7 +13,7 @@ export const data = [
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Americano.png',
+    imgUrl: '/coffes/Americano.png',
     tags: ['Tradicional'],
   },
   {
@@ -21,7 +21,7 @@ export const data = [
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Expresso_Cremoso.png',
+    imgUrl: '/coffes/Expresso_Cremoso.png',
     tags: ['Tradicional'],
   },
   {
@@ -29,7 +29,7 @@ export const data = [
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Café_Gelado.png',
+    imgUrl: '/coffes/Café_Gelado.png',
     tags: ['Tradicional', 'Gelado'],
   },
   {
@@ -37,7 +37,7 @@ export const data = [
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Café_com_Leite.png',
+    imgUrl: '/coffes/Café_com_Leite.png',
     tags: ['Tradicional', 'com Leite'],
   },
   {
@@ -46,7 +46,7 @@ export const data = [
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Latte.png',
+    imgUrl: '/coffes/Latte.png',
     tags: ['Tradicional', 'com Leite'],
   },
   {
@@ -55,7 +55,7 @@ export const data = [
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Capuccino.png',
+    imgUrl: '/coffes/Capuccino.png',
     tags: ['Tradicional', 'com Leite'],
   },
   {
@@ -64,7 +64,7 @@ export const data = [
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Macchiato.png',
+    imgUrl: '/coffes/Macchiato.png',
     tags: ['Tradicional', 'com Leite'],
   },
   {
@@ -72,7 +72,7 @@ export const data = [
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Mochaccino.png',
+    imgUrl: '/coffes/Mochaccino.png',
     tags: ['Tradicional', 'com Leite'],
   },
   {
@@ -80,7 +80,7 @@ export const data = [
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Chocolate_Quente.png',
+    imgUrl: '/coffes/Chocolate_Quente.png',
     tags: ['Especial', 'com Leite'],
   },
   {
@@ -89,7 +89,7 @@ export const data = [
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Cubano.png',
+    imgUrl: '/coffes/Cubano.png',
     tags: ['Especial', 'Alcoólico', 'Gelado'],
   },
   {
@@ -97,7 +97,7 @@ export const data = [
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Havaiano.png',
+    imgUrl: '/coffes/Havaiano.png',
     tags: ['Especial'],
   },
   {
@@ -105,7 +105,7 @@ export const data = [
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Árabe.png',
+    imgUrl: '/coffes/Árabe.png',
     tags: ['Especial'],
   },
   {
@@ -113,8 +113,8 @@ export const data = [
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     priceInCents: 990,
-    imgUrl: '/public/coffes/Irlandês.png',
+    imgUrl: '/coffes/Irlandês.png',
     tags: ['Especial', 'Alcoólico'],
   },
 ]
-export type DataType = typeof data
+export type DataType = (typeof data)[0]
