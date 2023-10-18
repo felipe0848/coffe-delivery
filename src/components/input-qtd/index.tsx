@@ -10,6 +10,7 @@ export function InputQtd() {
       <ButtonChangeQtd
         onClick={() => qtd !== 1 && setQtd((state) => state - 1)}
         title="Diminuir quantidade"
+        type="button"
       >
         <Minus size={14} />
       </ButtonChangeQtd>
@@ -21,6 +22,7 @@ export function InputQtd() {
       <ButtonChangeQtd
         onClick={() => setQtd((state) => state + 1)}
         title="Aumentar quantidade"
+        type="button"
       >
         <Plus size={14} />
       </ButtonChangeQtd>

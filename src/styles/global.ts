@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
   /* box-shadow: 0 0 0 2px ; */
 }
 body{
+  font-family: 'roboto', sans-serif;
   background: ${(props) => props.theme.background};
   color: ${(props) => props.theme['base-text']};
-  font-family: 'roboto', sans-serif;
   font-weight: 400;
   font-size: 1rem;
   padding: 0rem 10rem;

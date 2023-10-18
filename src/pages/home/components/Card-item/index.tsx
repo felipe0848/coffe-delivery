@@ -7,12 +7,23 @@ import {
   Tags,
 } from './style'
 import { InputQtd } from '../../../../components/input-qtd'
+import { useContext } from 'react'
+import { ProductsContext } from '../../../../context/ProductsContext'
+import { formatPriceInReais } from '../../../../utils/formatPriceInReais'
 
 interface CardItemProps {
   item: DataType
 }
 
 export function CardItem({ item }: CardItemProps) {
+  const { addInCart } = useContext(ProductsContext)
+  function handleAddInCart() {
+    const product = {
+      id: item.id,
+      qtd: 1,
+    }
+    addInCart(product)
+  }
   return (
     <CardItemContainer key={item.id}>
       <img src={item.imgUrl} alt="" />
@@ -26,12 +37,12 @@ export function CardItem({ item }: CardItemProps) {
 
       <FooterCard>
         <span>
-          <p>R$</p> <strong>{(item.priceInCents / 100).toFixed(2)}</strong>
+          <p>R$</p> <strong>{formatPriceInReais(item.priceInCents)}</strong>
         </span>
 
         <ActionsCardContainer>
           <InputQtd />
-          <button title="Adicionar ao carrinho">
+          <button title="Adicionar ao carrinho" onClick={handleAddInCart}>
             <ShoppingCart size={22} weight="fill" />
           </button>
         </ActionsCardContainer>
