@@ -25,12 +25,15 @@ export const CheckoutCoffeCard = styled.ul`
           justify-content: center;
           align-items: center;
           gap: 0.25rem;
-
           height: 2rem;
           padding: 0rem 0.5rem;
           border-radius: 6px;
           background: ${(props) => props.theme['base-button']};
           border: 1px solid transparent;
+          font-family: 'roboto';
+          color: ${(props) => props.theme['base-text']};
+          font-size: 0.75rem;
+          text-transform: uppercase;
           > svg {
             color: ${(props) => props.theme.purple};
           }
