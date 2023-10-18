@@ -6,7 +6,7 @@ import {
   FooterCard,
   Tags,
 } from './style'
-import { InputQtd } from '../input-qtd'
+import { InputQtd } from '../../../../components/input-qtd'
 
 interface CardItemProps {
   item: DataType
