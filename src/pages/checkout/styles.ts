@@ -16,3 +16,9 @@ export const MainCheckoutContainer = styled.main`
     gap: 1rem;
   }
 `
+export const ErrorMessage = styled.span`
+  color: ${(props) => props.theme.danger};
+  font-size: 0.875rem;
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+`

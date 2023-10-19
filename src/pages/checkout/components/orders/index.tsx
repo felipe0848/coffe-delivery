@@ -19,28 +19,34 @@ export function Orders() {
   const TotalInCents = subtotalInCents + deliveryFeeInCents
   return (
     <AsideContainer>
-      <CheckoutCoffeList>
-        {products.map((product) => (
-          <OrderCoffeCard key={product.id} item={product} />
-        ))}
-      </CheckoutCoffeList>
-      <SummaryOrders>
-        <li>
-          <p>Total de itens</p>
-          <span>R$ {formatPriceInReais(subtotalInCents)}</span>
-        </li>
-        <li>
-          <p>Entrega</p>
-          <span>R$ {formatPriceInReais(deliveryFeeInCents)}</span>
-        </li>
-        <li>
-          <strong>Total</strong>
-          <strong>
-            <span>R$ {formatPriceInReais(TotalInCents)}</span>
-          </strong>
-        </li>
-      </SummaryOrders>
-      <ButtonSubmit type="submit">Confirmar Pedido</ButtonSubmit>
+      {/* {products.length > 0 ? ( */}
+      <>
+        <CheckoutCoffeList>
+          {products.map((product) => (
+            <OrderCoffeCard key={product.id} item={product} />
+          ))}
+        </CheckoutCoffeList>
+        <SummaryOrders>
+          <li>
+            <p>Total de itens</p>
+            <span>R$ {formatPriceInReais(subtotalInCents)}</span>
+          </li>
+          <li>
+            <p>Entrega</p>
+            <span>R$ {formatPriceInReais(deliveryFeeInCents)}</span>
+          </li>
+          <li>
+            <strong>Total</strong>
+            <strong>
+              <span>R$ {formatPriceInReais(TotalInCents)}</span>
+            </strong>
+          </li>
+        </SummaryOrders>
+        <ButtonSubmit type="submit">Confirmar Pedido</ButtonSubmit>
+      </>
+      {/* ) : (
+        <h3>Adicione Produtos ao carrinho</h3>
+      )} */}
     </AsideContainer>
   )
 }

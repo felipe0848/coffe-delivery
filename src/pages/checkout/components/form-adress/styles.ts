@@ -43,36 +43,58 @@ export const InputsContainer = styled.div`
     'neighborhood city UF';
   gap: 1rem 0.75rem;
 `
-const BaseInput = styled.input`
-  padding: 0.75rem;
-  border-radius: 4px;
-  border: 1px solid ${(props) => props.theme['base-button']};
-  background: ${(props) => props.theme['base-input']};
-  color: ${(props) => props.theme['base-text']};
+const BaseInput = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  > input {
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 1px solid ${(props) => props.theme['base-button']};
+    background: ${(props) => props.theme['base-input']};
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  > span {
+    width: max-content;
+  }
 `
 export const CepInput = styled(BaseInput)`
   grid-area: cep;
 `
 export const StreetInput = styled(BaseInput)`
   grid-area: street;
-  text-transform: capitalize;
+  > input {
+    text-transform: capitalize;
+  }
 `
 export const NumberInput = styled(BaseInput)`
   grid-area: number;
 `
 export const ComplementInput = styled(BaseInput)`
   grid-area: complement;
-  text-transform: capitalize;
+  > input {
+    text-transform: capitalize;
+  }
 `
 export const NeighborhoodInput = styled(BaseInput)`
   grid-area: neighborhood;
-  text-transform: capitalize;
+  > input {
+    text-transform: capitalize;
+  }
 `
 export const CityInput = styled(BaseInput)`
   grid-area: city;
-  text-transform: capitalize;
+  > input {
+    text-transform: capitalize;
+  }
 `
 export const UFInput = styled(BaseInput)`
   grid-area: UF;
-  text-transform: uppercase;
+  > input {
+    text-transform: uppercase;
+  }
+  > span {
+    width: fit-content;
+  }
 `

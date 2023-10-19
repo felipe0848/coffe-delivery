@@ -11,8 +11,15 @@ import {
   StreetInput,
   UFInput,
 } from './styles'
+import { useFormContext } from 'react-hook-form'
+import { ErrorMessage } from '../../styles'
+import { formDeliveryData } from '../..'
 
 export function FormAdress() {
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<formDeliveryData>()
   return (
     <FormContainer>
       <FormHeaderContainer>
@@ -23,13 +30,56 @@ export function FormAdress() {
         </div>
       </FormHeaderContainer>
       <InputsContainer>
-        <CepInput type="text" placeholder="CEP" />
-        <StreetInput type="text" placeholder="Rua" />
-        <NumberInput type="Number" placeholder="Número" />
-        <ComplementInput type="text" placeholder="Complemento" />
-        <NeighborhoodInput type="text" placeholder="Bairro" />
-        <CityInput type="text" placeholder="Cidade" />
-        <UFInput type="text" placeholder="UF" />
+        <CepInput>
+          <input type="text" placeholder="CEP" {...register('CEP')} />
+          {errors.CEP?.message && (
+            <ErrorMessage>* {errors.CEP?.message}</ErrorMessage>
+          )}
+        </CepInput>
+        <StreetInput>
+          <input type="text" placeholder="Rua" {...register('Street')} />
+          {errors.Street?.message && (
+            <ErrorMessage>* {errors.Street?.message}</ErrorMessage>
+          )}
+        </StreetInput>
+        <NumberInput>
+          <input type="Number" placeholder="Número" {...register('Number')} />
+          {errors.Number?.message && (
+            <ErrorMessage>* {errors.Number?.message}</ErrorMessage>
+          )}
+        </NumberInput>
+        <ComplementInput>
+          <input
+            type="text"
+            placeholder="Complemento"
+            {...register('Complement')}
+          />
+          {errors.Complement?.message && (
+            <ErrorMessage>* {errors.Complement?.message}</ErrorMessage>
+          )}
+        </ComplementInput>
+        <NeighborhoodInput>
+          <input
+            type="text"
+            placeholder="Bairro"
+            {...register('Neighborhood')}
+          />
+          {errors.Neighborhood?.message && (
+            <ErrorMessage>* {errors.Neighborhood?.message}</ErrorMessage>
+          )}
+        </NeighborhoodInput>
+        <CityInput>
+          <input type="text" placeholder="Cidade" {...register('City')} />
+          {errors.City?.message && (
+            <ErrorMessage>* {errors.City?.message}</ErrorMessage>
+          )}
+        </CityInput>
+        <UFInput>
+          <input type="text" placeholder="UF" {...register('UF')} />
+          {errors.UF?.message && (
+            <ErrorMessage>* {errors.UF?.message}</ErrorMessage>
+          )}
+        </UFInput>
       </InputsContainer>
     </FormContainer>
   )
