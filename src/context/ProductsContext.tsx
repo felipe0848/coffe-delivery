@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useState } from 'react'
 import { DataType, data } from '../db'
 import { formDeliveryData } from '../pages/checkout'
+import { toast } from 'react-toastify'
 
 export interface ProductType extends DataType {
   qtd: number
@@ -35,12 +36,14 @@ export function ProductsContextProvider({
     if (ProductData) {
       const newProduct = Object.assign(ProductData, product)
       setProducts((state) => [...state, newProduct])
+      toast(`☕ ${newProduct.name} adicionado ao carrinho`)
     }
   }
 
   function removeItemInCart(id: string) {
     const ProductsWithOutCurrent = products.filter((item) => item.id !== id)
     setProducts(ProductsWithOutCurrent)
+    toast.error(`Produto retirado do carrinho`)
   }
 
   function updateQuantity({ id, qtd }: ProductRequestType) {
