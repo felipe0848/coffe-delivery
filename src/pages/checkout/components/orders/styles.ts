@@ -8,7 +8,23 @@ export const AsideContainer = styled.div`
   border-radius: 6px 44px;
   background: ${(props) => props.theme['base-card']};
 `
-
+export const AsideContainerWithOutProducts = styled(AsideContainer)`
+  align-items: center;
+  gap: 0;
+  filter: opacity(0.9) grayscale(70%);
+  > img {
+    width: 80%;
+  }
+  > h2 {
+    font-size: 5rem;
+    font-family: 'baloo 2';
+    margin-top: -4rem;
+  }
+  > h3 {
+    font-size: 1.25rem;
+    margin-top: -2rem;
+  }
+`
 export const CheckoutCoffeList = styled.ul`
   list-style: none;
   display: flex;

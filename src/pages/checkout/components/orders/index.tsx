@@ -1,5 +1,6 @@
 import {
   AsideContainer,
+  AsideContainerWithOutProducts,
   ButtonSubmit,
   CheckoutCoffeList,
   SummaryOrders,
@@ -8,7 +9,7 @@ import { OrderCoffeCard } from '../order-coffe-card'
 import { useContext } from 'react'
 import { ProductsContext } from '../../../../context/ProductsContext'
 import { formatPriceInReais } from '../../../../utils/formatPriceInReais'
-
+import imgSupriseCoffe from '../../../../assets/Oh-noo.png'
 export function Orders() {
   const { products } = useContext(ProductsContext)
   const subtotalInCents = products.reduce(
@@ -17,10 +18,9 @@ export function Orders() {
   )
   const deliveryFeeInCents = subtotalInCents > 4000 ? 0 : 350
   const TotalInCents = subtotalInCents + deliveryFeeInCents
-  return (
-    <AsideContainer>
-      {/* {products.length > 0 ? ( */}
-      <>
+  if (products.length > 0)
+    return (
+      <AsideContainer>
         <CheckoutCoffeList>
           {products.map((product) => (
             <OrderCoffeCard key={product.id} item={product} />
@@ -43,10 +43,14 @@ export function Orders() {
           </li>
         </SummaryOrders>
         <ButtonSubmit type="submit">Confirmar Pedido</ButtonSubmit>
-      </>
-      {/* ) : (
-        <h3>Adicione Produtos ao carrinho</h3>
-      )} */}
-    </AsideContainer>
-  )
+      </AsideContainer>
+    )
+  else
+    return (
+      <AsideContainerWithOutProducts>
+        <img src={imgSupriseCoffe} alt="" />
+        <h2>Oh Não!</h2>
+        <h3>Não há produtos no carrinho</h3>
+      </AsideContainerWithOutProducts>
+    )
 }
