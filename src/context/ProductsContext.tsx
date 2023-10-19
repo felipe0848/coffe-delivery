@@ -12,6 +12,7 @@ interface ProductsContextType {
   products: ProductType[]
   addInCart: (product: ProductRequestType) => void
   removeItemInCart: (id: string) => void
+  updateQuantity: (item: ProductRequestType) => void
 }
 export const ProductsContext = createContext({} as ProductsContextType)
 interface ProductsContextProviderProps {
@@ -29,12 +30,24 @@ export function ProductsContextProvider({
       setProducts((state) => [...state, newProduct])
     }
   }
+
   function removeItemInCart(id: string) {
     const ProductsWithOutCurrent = products.filter((item) => item.id !== id)
     setProducts(ProductsWithOutCurrent)
   }
+
+  function updateQuantity({ id, qtd }: ProductRequestType) {
+    const updatedProducts = products.map((item) => {
+      if (item.id === id) return { ...item, qtd }
+      else return item
+    })
+
+    setProducts(updatedProducts)
+  }
   return (
-    <ProductsContext.Provider value={{ products, addInCart, removeItemInCart }}>
+    <ProductsContext.Provider
+      value={{ products, addInCart, removeItemInCart, updateQuantity }}
+    >
       {children}
     </ProductsContext.Provider>
   )

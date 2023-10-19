@@ -6,16 +6,21 @@ import {
   ProductsContext,
 } from '../../../../context/ProductsContext'
 import { formatPriceInReais } from '../../../../utils/formatPriceInReais'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 interface OrderCoffeCardProps {
   item: ProductType
 }
 
 export function OrderCoffeCard({ item }: OrderCoffeCardProps) {
-  const { removeItemInCart } = useContext(ProductsContext)
+  const { removeItemInCart, updateQuantity } = useContext(ProductsContext)
+  const [qtd, setQtd] = useState(item.qtd)
   function handleDeleteItem() {
     removeItemInCart(item.id)
+  }
+  function handleChangeQtd(value: number) {
+    updateQuantity({ id: item.id, qtd: value })
+    setQtd(value)
   }
   return (
     <CheckoutCoffeCard>
@@ -24,7 +29,7 @@ export function OrderCoffeCard({ item }: OrderCoffeCardProps) {
         <div>
           <strong>{item.name}</strong>
           <div>
-            <InputQtd />
+            <InputQtd qtd={qtd} setQtd={handleChangeQtd} />
             <button type="button" onClick={handleDeleteItem}>
               <Trash />
               <p>Remover</p>
@@ -32,7 +37,7 @@ export function OrderCoffeCard({ item }: OrderCoffeCardProps) {
           </div>
         </div>
       </div>
-      <span>R$ {formatPriceInReais(item.priceInCents)}</span>
+      <span>R$ {formatPriceInReais(item.priceInCents * item.qtd)}</span>
     </CheckoutCoffeCard>
   )
 }

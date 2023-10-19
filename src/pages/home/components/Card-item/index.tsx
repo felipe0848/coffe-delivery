@@ -7,7 +7,7 @@ import {
   Tags,
 } from './style'
 import { InputQtd } from '../../../../components/input-qtd'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { ProductsContext } from '../../../../context/ProductsContext'
 import { formatPriceInReais } from '../../../../utils/formatPriceInReais'
 
@@ -17,10 +17,11 @@ interface CardItemProps {
 
 export function CardItem({ item }: CardItemProps) {
   const { addInCart } = useContext(ProductsContext)
+  const [qtd, setQtd] = useState(1)
   function handleAddInCart() {
     const product = {
       id: item.id,
-      qtd: 1,
+      qtd,
     }
     addInCart(product)
   }
@@ -37,11 +38,12 @@ export function CardItem({ item }: CardItemProps) {
 
       <FooterCard>
         <span>
-          <p>R$</p> <strong>{formatPriceInReais(item.priceInCents)}</strong>
+          <p>R$</p>{' '}
+          <strong>{formatPriceInReais(item.priceInCents * qtd)}</strong>
         </span>
 
         <ActionsCardContainer>
-          <InputQtd />
+          <InputQtd qtd={qtd} setQtd={setQtd} />
           <button title="Adicionar ao carrinho" onClick={handleAddInCart}>
             <ShoppingCart size={22} weight="fill" />
           </button>

@@ -12,7 +12,7 @@ import { formatPriceInReais } from '../../../../utils/formatPriceInReais'
 export function Orders() {
   const { products } = useContext(ProductsContext)
   const subtotalInCents = products.reduce(
-    (sum, current) => (sum += current.priceInCents),
+    (sum, current) => (sum += current.priceInCents * current.qtd),
     0,
   )
   const deliveryFeeInCents = subtotalInCents > 4000 ? 0 : 350

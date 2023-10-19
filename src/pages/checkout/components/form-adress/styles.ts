@@ -48,25 +48,31 @@ const BaseInput = styled.input`
   border-radius: 4px;
   border: 1px solid ${(props) => props.theme['base-button']};
   background: ${(props) => props.theme['base-input']};
+  color: ${(props) => props.theme['base-text']};
 `
 export const CepInput = styled(BaseInput)`
   grid-area: cep;
 `
 export const StreetInput = styled(BaseInput)`
   grid-area: street;
+  text-transform: capitalize;
 `
 export const NumberInput = styled(BaseInput)`
   grid-area: number;
 `
 export const ComplementInput = styled(BaseInput)`
   grid-area: complement;
+  text-transform: capitalize;
 `
 export const NeighborhoodInput = styled(BaseInput)`
   grid-area: neighborhood;
+  text-transform: capitalize;
 `
 export const CityInput = styled(BaseInput)`
   grid-area: city;
+  text-transform: capitalize;
 `
 export const UFInput = styled(BaseInput)`
   grid-area: UF;
+  text-transform: uppercase;
 `

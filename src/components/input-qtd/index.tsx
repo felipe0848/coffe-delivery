@@ -1,14 +1,15 @@
 import { Minus, Plus } from 'phosphor-react'
 import { ButtonChangeQtd, InputQtdContainer } from './style'
-import { useState } from 'react'
 
-export function InputQtd() {
-  const [qtd, setQtd] = useState(1)
-
+interface InputQtdProps {
+  qtd: number
+  setQtd: (value: number) => void
+}
+export function InputQtd({ qtd, setQtd }: InputQtdProps) {
   return (
     <InputQtdContainer>
       <ButtonChangeQtd
-        onClick={() => qtd !== 1 && setQtd((state) => state - 1)}
+        onClick={() => qtd !== 1 && setQtd(qtd - 1)}
         title="Diminuir quantidade"
         type="button"
       >
@@ -20,7 +21,7 @@ export function InputQtd() {
         onChange={(e) => setQtd(Number(e.target.value))}
       />
       <ButtonChangeQtd
-        onClick={() => setQtd((state) => state + 1)}
+        onClick={() => setQtd(qtd + 1)}
         title="Aumentar quantidade"
         type="button"
       >
