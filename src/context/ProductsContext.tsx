@@ -1,5 +1,6 @@
 import { ReactNode, createContext, useState } from 'react'
 import { DataType, data } from '../db'
+import { formDeliveryData } from '../pages/checkout'
 
 export interface ProductType extends DataType {
   qtd: number
@@ -10,9 +11,11 @@ interface ProductRequestType {
 }
 interface ProductsContextType {
   products: ProductType[]
+  adress: formDeliveryData | undefined
   addInCart: (product: ProductRequestType) => void
   removeItemInCart: (id: string) => void
   updateQuantity: (item: ProductRequestType) => void
+  AddNewAdress: (data: formDeliveryData) => void
 }
 export const ProductsContext = createContext({} as ProductsContextType)
 interface ProductsContextProviderProps {
@@ -22,7 +25,11 @@ export function ProductsContextProvider({
   children,
 }: ProductsContextProviderProps) {
   const [products, setProducts] = useState<ProductType[]>([])
+  const [adress, setAdress] = useState<formDeliveryData | undefined>(undefined)
 
+  function AddNewAdress(data: formDeliveryData) {
+    setAdress(data)
+  }
   function addInCart(product: ProductRequestType) {
     const ProductData = data.find((current) => current.id === product.id)
     if (ProductData) {
@@ -46,7 +53,14 @@ export function ProductsContextProvider({
   }
   return (
     <ProductsContext.Provider
-      value={{ products, addInCart, removeItemInCart, updateQuantity }}
+      value={{
+        products,
+        addInCart,
+        removeItemInCart,
+        updateQuantity,
+        adress,
+        AddNewAdress,
+      }}
     >
       {children}
     </ProductsContext.Provider>

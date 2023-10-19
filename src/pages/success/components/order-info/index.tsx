@@ -1,38 +1,47 @@
 import { Clock, CurrencyDollar, MapPin } from 'phosphor-react'
 import { DeliveryInfos, SpanIcon } from './styles'
+import { useContext } from 'react'
+import { ProductsContext } from '../../../../context/ProductsContext'
 
 export function OrderInfo() {
-  return (
-    <DeliveryInfos>
-      <div>
-        <SpanIcon $color="purple">
-          <MapPin weight="fill" size={16} />
-        </SpanIcon>
+  const { adress } = useContext(ProductsContext)
+  if (adress)
+    return (
+      <DeliveryInfos>
         <div>
-          <p>
-            Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
-          </p>
-          <p>Farrapos - Porto Alegre, RS</p>
+          <SpanIcon $color="purple">
+            <MapPin weight="fill" size={16} />
+          </SpanIcon>
+          <div>
+            <p>
+              Entrega em{' '}
+              <strong>
+                {adress.Street}, {adress.Number}
+              </strong>
+            </p>
+            <p>
+              {adress.Neighborhood} - {adress.City}, {adress.UF}
+            </p>
+          </div>
         </div>
-      </div>
-      <div>
-        <SpanIcon $color="yellow">
-          <Clock weight="fill" size={16} />
-        </SpanIcon>
         <div>
-          <p>Previsão de entrega</p>
-          <strong>20 min - 30 min</strong>
+          <SpanIcon $color="yellow">
+            <Clock weight="fill" size={16} />
+          </SpanIcon>
+          <div>
+            <p>Previsão de entrega</p>
+            <strong>20 min - 30 min</strong>
+          </div>
         </div>
-      </div>
-      <div>
-        <SpanIcon $color="yellow-dark">
-          <CurrencyDollar weight="bold" size={16} />
-        </SpanIcon>
         <div>
-          <p>Pagamento na entrega</p>
-          <strong>Cartão de Crédito</strong>
+          <SpanIcon $color="yellow-dark">
+            <CurrencyDollar weight="bold" size={16} />
+          </SpanIcon>
+          <div>
+            <p>Pagamento na entrega</p>
+            <strong>{adress.Payment}</strong>
+          </div>
         </div>
-      </div>
-    </DeliveryInfos>
-  )
+      </DeliveryInfos>
+    )
 }
