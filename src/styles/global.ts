@@ -18,4 +18,23 @@ body{
   font-size: 1rem;
   padding: 0rem 10rem;
 }
+
+@media(max-width:1225px){
+  html{
+    font-size: 75%
+  }}
+  @media(max-width:875px){
+    body{
+      padding: 0rem 5rem;
+  }}
+  @media(max-width:745px){
+  html{
+    font-size: 65%
+  }}
+  @media (max-width: 645px) {
+    body{
+      padding: 0rem 2rem;
+  
+  }
+}
 `

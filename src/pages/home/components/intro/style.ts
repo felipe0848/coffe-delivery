@@ -6,13 +6,22 @@ export const IntroContainer = styled.section`
   justify-content: space-between;
   gap: 2.5rem;
   img {
-    max-width: 476px;
+    max-width: 46%;
+  }
+  @media (max-width: 575px) {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    img {
+      max-width: 80%;
+    }
   }
 `
 export const IntroTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  /* width: 54%; */
   > div {
     display: flex;
     flex-direction: column;

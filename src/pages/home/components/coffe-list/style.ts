@@ -16,4 +16,5 @@ export const CardList = styled.ul`
   gap: 2.5rem 2rem;
   flex-wrap: wrap;
   list-style: none;
+  justify-content: center;
 `
