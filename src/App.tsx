@@ -26,6 +26,7 @@ export function App() {
         draggable
         pauseOnHover={false}
         theme="light"
+        style={{ top: '5rem' }}
       />
     </ThemeProvider>
   )
