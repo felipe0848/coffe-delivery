@@ -7,6 +7,7 @@ export const AsideContainer = styled.div`
   gap: 1.5rem;
   border-radius: 6px 44px;
   background: ${(props) => props.theme['base-card']};
+  width: 28rem;
 `
 export const AsideContainerWithOutProducts = styled(AsideContainer)`
   align-items: center;

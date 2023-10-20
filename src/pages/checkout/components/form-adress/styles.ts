@@ -33,7 +33,7 @@ export const FormHeaderContainer = styled.header`
 `
 
 export const InputsContainer = styled.div`
-  max-width: 35rem;
+  width: fit-content;
   display: grid;
   grid-template-columns: 1fr 2fr 60px;
   grid-template-areas:
@@ -42,6 +42,16 @@ export const InputsContainer = styled.div`
     'number complement complement'
     'neighborhood city UF';
   gap: 1rem 0.75rem;
+  @media (max-width: 425px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    grid-template-areas:
+      'cep city'
+      'street street'
+      'number complement '
+      'neighborhood UF';
+  }
 `
 const BaseInput = styled.div`
   display: flex;
