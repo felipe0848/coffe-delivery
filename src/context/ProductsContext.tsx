@@ -2,6 +2,7 @@ import { ReactNode, createContext, useEffect, useState } from 'react'
 import { DataType, data } from '../db'
 import { formDeliveryData } from '../pages/checkout'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 export interface ProductType extends DataType {
   qtd: number
@@ -17,7 +18,7 @@ interface ProductsContextType {
   removeItemInCart: (id: string) => void
   updateQuantity: (item: ProductRequestType) => void
   addNewAdress: (data: formDeliveryData) => void
-  clearCart: () => void
+  newOrder: (data: formDeliveryData) => void
 }
 export const ProductsContext = createContext({} as ProductsContextType)
 interface ProductsContextProviderProps {
@@ -40,6 +41,7 @@ export function ProductsContextProvider({
     }
     return null
   })
+  const navigate = useNavigate()
 
   useEffect(() => {
     const stateJSON = JSON.stringify(products)
@@ -75,9 +77,13 @@ export function ProductsContextProvider({
       }
     }
   }
-  function clearCart() {
+  function newOrder(data: formDeliveryData) {
+    navigate('/checkout/success')
+    addNewAdress(data)
     setProducts([])
+    toast.success('Compra realizada ')
   }
+
   function removeItemInCart(id: string) {
     const ProductsWithOutCurrent = products.filter((item) => item.id !== id)
     setProducts(ProductsWithOutCurrent)
@@ -101,7 +107,7 @@ export function ProductsContextProvider({
         updateQuantity,
         adress,
         addNewAdress,
-        clearCart,
+        newOrder,
       }}
     >
       {children}

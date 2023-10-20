@@ -6,11 +6,9 @@ import { Orders } from './components/orders'
 import { z } from 'zod'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { ProductsContext } from '../../context/ProductsContext'
 import { formDeliverySchema } from './validation/zod'
-import { toast } from 'react-toastify'
 
 export type formDeliveryData = z.infer<typeof formDeliverySchema>
 
@@ -19,14 +17,11 @@ export function Checkout() {
     resolver: zodResolver(formDeliverySchema),
   })
   const { handleSubmit } = DeliveryForm
-  const navigate = useNavigate()
-  const { addNewAdress, clearCart } = useContext(ProductsContext)
+
+  const { newOrder } = useContext(ProductsContext)
 
   function handleNewOrder(data: formDeliveryData) {
-    navigate('/checkout/success')
-    addNewAdress(data)
-    clearCart()
-    toast.success('Compra realizada ')
+    newOrder(data)
   }
   return (
     <form onSubmit={handleSubmit(handleNewOrder)}>
