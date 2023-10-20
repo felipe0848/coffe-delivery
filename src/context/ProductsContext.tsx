@@ -57,11 +57,22 @@ export function ProductsContextProvider({
     setAdress(data)
   }
   function addInCart(product: ProductRequestType) {
-    const ProductData = data.find((current) => current.id === product.id)
-    if (ProductData) {
-      const newProduct = Object.assign(ProductData, product)
-      setProducts((state) => [...state, newProduct])
-      toast(`☕ ${newProduct.name} adicionado ao carrinho`)
+    const isInCart = products.find((item) => product.id === item.id)
+    if (isInCart) {
+      const newArrayProducts = products.map((item) => {
+        if (isInCart.id === item.id)
+          return { ...isInCart, qtd: isInCart.qtd + 1 }
+        return item
+      })
+      setProducts(newArrayProducts)
+      toast(`☕ ${isInCart.name} adicionado ao carrinho`)
+    } else {
+      const ProductData = data.find((current) => current.id === product.id)
+      if (ProductData) {
+        const newProduct = Object.assign(ProductData, product)
+        setProducts((state) => [...state, newProduct])
+        toast(`☕ ${newProduct.name} adicionado ao carrinho`)
+      }
     }
   }
   function clearCart() {
