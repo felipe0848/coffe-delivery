@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useEffect, useState } from 'react'
 import { DataType, data } from '../db'
 import { formDeliveryData } from '../pages/checkout'
 import { toast } from 'react-toastify'
@@ -12,11 +12,12 @@ interface ProductRequestType {
 }
 interface ProductsContextType {
   products: ProductType[]
-  adress: formDeliveryData | undefined
+  adress: formDeliveryData | null
   addInCart: (product: ProductRequestType) => void
   removeItemInCart: (id: string) => void
   updateQuantity: (item: ProductRequestType) => void
-  AddNewAdress: (data: formDeliveryData) => void
+  addNewAdress: (data: formDeliveryData) => void
+  clearCart: () => void
 }
 export const ProductsContext = createContext({} as ProductsContextType)
 interface ProductsContextProviderProps {
@@ -25,10 +26,34 @@ interface ProductsContextProviderProps {
 export function ProductsContextProvider({
   children,
 }: ProductsContextProviderProps) {
-  const [products, setProducts] = useState<ProductType[]>([])
-  const [adress, setAdress] = useState<formDeliveryData | undefined>(undefined)
+  const [products, setProducts] = useState<ProductType[]>(() => {
+    const storedProducts = localStorage.getItem('Coffe-Delivery-Products')
+    if (storedProducts) {
+      return JSON.parse(storedProducts)
+    }
+    return []
+  })
+  const [adress, setAdress] = useState<formDeliveryData | null>(() => {
+    const storedAdress = localStorage.getItem('Coffe-Delivery-Adress')
+    if (storedAdress) {
+      return JSON.parse(storedAdress)
+    }
+    return null
+  })
 
-  function AddNewAdress(data: formDeliveryData) {
+  useEffect(() => {
+    const stateJSON = JSON.stringify(products)
+
+    localStorage.setItem('Coffe-Delivery-Products', stateJSON)
+  }, [products])
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(adress)
+
+    localStorage.setItem('Coffe-Delivery-Adress', stateJSON)
+  }, [adress])
+
+  function addNewAdress(data: formDeliveryData) {
     setAdress(data)
   }
   function addInCart(product: ProductRequestType) {
@@ -39,7 +64,9 @@ export function ProductsContextProvider({
       toast(`☕ ${newProduct.name} adicionado ao carrinho`)
     }
   }
-
+  function clearCart() {
+    setProducts([])
+  }
   function removeItemInCart(id: string) {
     const ProductsWithOutCurrent = products.filter((item) => item.id !== id)
     setProducts(ProductsWithOutCurrent)
@@ -62,7 +89,8 @@ export function ProductsContextProvider({
         removeItemInCart,
         updateQuantity,
         adress,
-        AddNewAdress,
+        addNewAdress,
+        clearCart,
       }}
     >
       {children}
