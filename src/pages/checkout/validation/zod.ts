@@ -29,8 +29,7 @@ const UFArray = [
   'SP',
   'SE',
   'TO',
-] as const
-
+]
 export const formDeliverySchema = z.object({
   CEP: z.string().refine((val) => val.match(RegexCepValidate), {
     message: 'Cep inválido, Ex:(12345-123 ou 12345678)',
