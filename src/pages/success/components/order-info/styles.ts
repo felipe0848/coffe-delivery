@@ -13,6 +13,7 @@ export const DeliveryInfos = styled.div`
     align-items: center;
     color: ${(props) => props.theme['base-text']};
   }
+  width: fit-content;
 
   position: relative;
   background-clip: padding-box;
