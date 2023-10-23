@@ -1,7 +1,6 @@
-import { v4 as uuidv4 } from 'uuid'
 export const data = [
   {
-    id: uuidv4(),
+    id: 'e1f7a333-bea7-4b12-aa57-e11f619781b9',
     name: 'Expresso Tradicional',
     description: 'O tradicional café feito com água quente e grãos moídos',
     priceInCents: 990,
@@ -9,7 +8,7 @@ export const data = [
     tags: ['Tradicional'],
   },
   {
-    id: uuidv4(),
+    id: '3c8f28b5-5b6c-4e1c-9c1e-c0a94eb2165b',
     name: 'Expresso Americano',
     description: 'Expresso diluído, menos intenso que o tradicional',
     priceInCents: 990,
@@ -17,7 +16,7 @@ export const data = [
     tags: ['Tradicional'],
   },
   {
-    id: uuidv4(),
+    id: '490e9346-b1ab-44cb-b92e-1e5731842fd9',
     name: 'Expresso Cremoso',
     description: 'Café expresso tradicional com espuma cremosa',
     priceInCents: 990,
@@ -25,7 +24,7 @@ export const data = [
     tags: ['Tradicional'],
   },
   {
-    id: uuidv4(),
+    id: 'd32ddf38-ef6b-4c7e-87b4-1365ee596d2b',
     name: 'Expresso Gelado',
     description: 'Bebida preparada com café expresso e cubos de gelo',
     priceInCents: 990,
@@ -33,7 +32,7 @@ export const data = [
     tags: ['Tradicional', 'Gelado'],
   },
   {
-    id: uuidv4(),
+    id: 'd529eabc-8124-4c8d-89e5-11c2b923902e',
     name: 'Café com Leite',
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     priceInCents: 990,
@@ -41,7 +40,7 @@ export const data = [
     tags: ['Tradicional', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: '9bbe0fb7-f88a-4e1b-b37d-ec43aeba621e',
     name: 'Latte',
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
@@ -50,7 +49,7 @@ export const data = [
     tags: ['Tradicional', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: 'dc29b03a-9e55-470f-9c03-ab63e9bccc92',
     name: 'Capuccino',
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
@@ -59,7 +58,7 @@ export const data = [
     tags: ['Tradicional', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: 'e91de983-65f6-406d-9d5c-67330d966346',
     name: 'Macchiato',
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
@@ -68,7 +67,7 @@ export const data = [
     tags: ['Tradicional', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: '9e27b896-4885-4473-b166-24a59df8d80f',
     name: 'Mocaccino',
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     priceInCents: 990,
@@ -76,7 +75,7 @@ export const data = [
     tags: ['Tradicional', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: 'ac65a230-d3a9-4a5c-a94f-f13b0964db24',
     name: 'Chocolate Quente',
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     priceInCents: 990,
@@ -84,7 +83,7 @@ export const data = [
     tags: ['Especial', 'com Leite'],
   },
   {
-    id: uuidv4(),
+    id: 'daca00eb-b5da-44bd-abe4-6a8d4db21e92',
     name: 'Cubano',
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
@@ -93,7 +92,7 @@ export const data = [
     tags: ['Especial', 'Alcoólico', 'Gelado'],
   },
   {
-    id: uuidv4(),
+    id: '210644a6-706f-482d-b7e8-03b8638f26c4',
     name: 'Havaiano',
     description: 'Bebida adocicada preparada com café e leite de coco',
     priceInCents: 990,
@@ -101,7 +100,7 @@ export const data = [
     tags: ['Especial'],
   },
   {
-    id: uuidv4(),
+    id: 'b4f29fd9-d409-40a5-9fbd-9656ffb10027',
     name: 'Árabe',
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     priceInCents: 990,
@@ -109,7 +108,7 @@ export const data = [
     tags: ['Especial'],
   },
   {
-    id: uuidv4(),
+    id: 'b5d4b299-5d82-4ed9-a0a2-45509c97ad28',
     name: 'Irlandês',
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     priceInCents: 990,
