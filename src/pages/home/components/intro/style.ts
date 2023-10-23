@@ -72,6 +72,7 @@ export const IntroBackground = styled.div`
   width: 100vw;
   left: 0;
   filter: blur(80px);
+  z-index: -999;
   img {
     max-height: 34rem;
     max-width: 100%;
