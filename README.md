@@ -4,12 +4,12 @@
 
 O desafio era desenvolver uma aplicação para gerenciar um carrinho de compras de uma cafeteria fictícia, que contenha as seguintes funcionalidades:
 
--   [x] Listagem de produtos (cafés) disponíveis para compra
--   [ ] Adicionar uma quantidade específicas de itens no carrinho
--   [ ] Adicionar uma quantidade específicas de itens no carrinho
--   [ ] Adicionar uma quantidade específicas de itens no carrinho
--   [ ] Exibir o total de itens no carrinho no Header
--   [ ] Exibir o valor total da soma de itens no carrinho multiplicados pelo valor
+-   [x] Listagem de produtos (cafés) disponíveis para compra;
+-   [x] Adicionar uma quantidade específicas de itens no carrinho;
+-   [x] Exibir o total de itens no carrinho no Header;
+-   [x] Exibir o valor total da soma de itens no carrinho multiplicados pelo valor;
+-   [x] Validar form de endereço de entrega;
+-   [x] Adicionar pagina de sucesso.
 
 ## 🖥️ Pré-requisitos e como rodar a aplicação/testes
 
@@ -29,18 +29,19 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 <img src="https://img.shields.io/badge/React-1572B6?style=for-the-badge&logo=React&logoColor=white">
 <img src="https://img.shields.io/badge/Vercel-09090a?style=for-the-badge&logo=vercel&logoColor=white">
 
-<!-- ## 🖼️ Demonstração da aplicação
+## 🖼️ Demonstração da aplicação
 
-![Home](./public/home.png)
-![Timer iniciado](./public/count-down-started.png)
-![Historico](./public/history.png) -->
+![Home](./public/Home.png)
+![Coffe list](./public/Coffe-list.png)
+![Cart](./public/Cart.png)
+![Success](./public/Success.png)
 
 ## 🚧 Status do projeto
 
-Em Construção
+Finalizado!
 
-<!-- Visualização do site:
-[Deploy na Vercel](https://) -->
+Visualização do site:
+[Deploy na Vercel](https://coffe-delivery-pink.vercel.app/)
 
 ## 🧑🏻‍ Autor
 
