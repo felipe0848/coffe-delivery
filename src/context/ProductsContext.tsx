@@ -63,7 +63,7 @@ export function ProductsContextProvider({
     if (isInCart) {
       const newArrayProducts = products.map((item) => {
         if (isInCart.id === item.id)
-          return { ...isInCart, qtd: isInCart.qtd + 1 }
+          return { ...isInCart, qtd: isInCart.qtd + product.qtd }
         return item
       })
       setProducts(newArrayProducts)

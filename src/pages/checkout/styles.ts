@@ -8,7 +8,6 @@ export const MainCheckoutContainer = styled.main`
   > aside {
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 1rem;
     flex: 1;
     > h3 {
@@ -23,6 +22,9 @@ export const MainCheckoutContainer = styled.main`
   }
   @media (max-width: 1225px) {
     flex-wrap: wrap;
+    > aside {
+      align-items: center;
+    }
     input {
       font-size: 90%;
     }
