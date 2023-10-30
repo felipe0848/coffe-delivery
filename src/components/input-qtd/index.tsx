@@ -7,7 +7,7 @@ interface InputQtdProps {
 }
 export function InputQtd({ qtd, setQtd }: InputQtdProps) {
   return (
-    <InputQtdContainer data-testid="InputQTD">
+    <InputQtdContainer data-testid="InputQTDContainer">
       <ButtonChangeQtd
         onClick={() => qtd !== 1 && setQtd(qtd - 1)}
         title="Diminuir quantidade"
@@ -19,6 +19,7 @@ export function InputQtd({ qtd, setQtd }: InputQtdProps) {
         type="number"
         value={qtd}
         onChange={(e) => setQtd(Number(e.target.value))}
+        data-testid="InputQTD"
       />
       <ButtonChangeQtd
         onClick={() => setQtd(qtd + 1)}

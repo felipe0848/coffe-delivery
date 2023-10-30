@@ -32,7 +32,7 @@ describe('CardItem', () => {
     expect(screen.getByText(item.description)).toBeInTheDocument()
     expect(screen.getByText(item.tags[0])).toBeInTheDocument()
     expect(screen.getByTitle('Adicionar ao carrinho')).toBeInTheDocument()
-    expect(screen.getByTestId('InputQTD')).toBeInTheDocument()
+    expect(screen.getByTestId('InputQTDContainer')).toBeInTheDocument()
   })
   it('should add item in cart', () => {
     renderComponent()
