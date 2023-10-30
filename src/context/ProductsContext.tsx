@@ -11,7 +11,7 @@ interface ProductRequestType {
   id: string
   qtd: number
 }
-interface ProductsContextType {
+export interface ProductsContextType {
   products: ProductType[]
   adress: formDeliveryData | null
   addInCart: (product: ProductRequestType) => void
