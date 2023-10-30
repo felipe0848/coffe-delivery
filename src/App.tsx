@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom'
 import { ProductsContextProvider } from './context/ProductsContext'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.min.css'
+import { Analytics } from '@vercel/analytics/react'
 export function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -28,6 +29,7 @@ export function App() {
         theme="light"
         style={{ top: '5rem' }}
       />
+      <Analytics />
     </ThemeProvider>
   )
 }
