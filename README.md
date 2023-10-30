@@ -38,7 +38,7 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 
 ## 🚧 Status do projeto
 
-Finalizado!
+Adicionando Testes na aplicação
 
 Visualização do site:
 [Deploy na Vercel](https://coffe-delivery-pink.vercel.app/)
