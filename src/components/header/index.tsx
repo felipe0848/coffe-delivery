@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 export function Header() {
   return (
     <HeaderContainer>
-      <NavLink to={'/'}>
+      <NavLink to={'/'} data-testid="logo-anchor">
         <img src={logoCoffeDelivery} alt="" />
       </NavLink>
       <ActionsContainer>
